@@ -1,4 +1,5 @@
 import { SvgIcon } from "components/@base";
+import { signIn } from "next-auth/react";
 import React from "react";
 
 export type Provider = "naver";
@@ -22,6 +23,7 @@ function SocialProvider({ provider }: Props) {
   return (
     <button
       type="button"
+      onClick={() => signIn(provider)}
       className="flex items-center gap-3 rounded-xl py-4 px-8 justify-center"
       style={{ backgroundColor: bgColor, color: accentColor }}
     >
