@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import AuthSocialActions from "../AuthSocialActions";
 
 function AuthPopover() {
-  const { query, back } = useRouter();
+  const { query } = useRouter();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ function AuthPopover() {
   }, [query]);
 
   return (
-    <Modal isVisible={isVisible} onBackDrop={back}>
+    <Modal isVisible={isVisible} onBackDrop={() => {}}>
       <div className="flex flex-col justify-center items-center flex-1 gap-8 p-4">
         <div className="flex flex-col gap-3 justify-center items-center">
           <h1 className="text-primary font-primary text-4xl">Cheer luv</h1>
