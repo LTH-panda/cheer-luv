@@ -12,9 +12,28 @@ export default NextAuth({
     }),
   ],
 
+  pages: {
+    error: "/auth/error",
+    newUser: "/auth/register",
+  },
+
   callbacks: {
     async redirect({ baseUrl }) {
       return baseUrl;
+    },
+    async session({ user, session }) {
+      const newSession = { ...session, user: { ...session.user, id: user.id } };
+      return newSession;
+    },
+  },
+
+  events: {
+    async createUser({ user }) {
+      await prisma.profile.create({
+        data: {
+          userId: user.id,
+        },
+      });
     },
   },
 });
