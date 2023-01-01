@@ -1,16 +1,19 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { writeTodo } from "apis/todos";
 import { Button } from "components/@base";
+import useTriggerAuth from "hooks/useTriggerAuth";
 import { useSession } from "next-auth/react";
 import React, { useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 
 function WriteForm() {
   const queryClient = useQueryClient();
+  const { triggerAuth } = useTriggerAuth();
+  const { data, status } = useSession();
   const [content, setContent] = useState("");
-  const { data } = useSession();
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    if (status === "unauthenticated") triggerAuth();
     const { value } = e.target;
     setContent(value);
   };
