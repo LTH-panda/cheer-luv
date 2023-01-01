@@ -27,11 +27,12 @@ function TodoList() {
 
   return (
     <>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 sm:grid sm:grid-cols-2">
         {todos.map((T) => (
           <TodoCard
             id={T.id}
-            author={T.author.nickname}
+            authorId={T.author.userId}
+            authorNickname={T.author.nickname}
             date={T.createdAt}
             content={T.content}
             likeCount={T.liked}

@@ -58,6 +58,7 @@ export default async function handler(
       res.send(todo);
       break;
     }
+
     default: {
       res.status(405).send("Method Error");
       break;

@@ -23,6 +23,18 @@ export async function getTodos(lastId?: number) {
   return res.data;
 }
 
+export async function removeTodo({
+  userId,
+  todoId,
+}: {
+  userId: string;
+  todoId: number;
+}) {
+  const res = await client.delete(`/todos/${todoId}`, { params: { userId } });
+
+  return res.data;
+}
+
 export async function cheerTodo({
   userId,
   todoId,
