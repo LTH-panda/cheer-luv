@@ -21,7 +21,7 @@ export default async function hanlder(
       },
     });
 
-    res.status(204).send();
+    res.status(204).send(null);
   } catch (err) {
     console.error(err);
   }
