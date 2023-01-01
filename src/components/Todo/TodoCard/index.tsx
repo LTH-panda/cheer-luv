@@ -2,6 +2,7 @@ import colors from "common/styles/colors";
 import { SvgIcon } from "components/@base";
 import React from "react";
 import formatDate from "utils/formatDate";
+import TodoCheerButton from "../TodoCheerButton";
 
 type Props = {
   id: number;
@@ -20,9 +21,12 @@ function TodoCard({ id, author, date, content, likeCount }: Props) {
         <span className="text-gray-300">{formatDate(date)}</span>
       </div>
       <div className="flex-1">{content}</div>
-      <div className="flex items-center gap-1 text-gray-400">
-        <SvgIcon name="heart" size={16} color={colors.gray[400]} />
-        {likeCount}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-1 text-gray-400">
+          <SvgIcon name="heart" size={16} color={colors.gray[400]} />
+          {likeCount}
+        </div>
+        <TodoCheerButton />
       </div>
     </div>
   );
