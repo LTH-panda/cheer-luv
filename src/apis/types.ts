@@ -6,6 +6,11 @@ export type GetTodosResult = {
   };
 };
 
+export type GetProfileResult = {
+  id: String;
+  profile: { nickname: string };
+};
+
 export type Todo = {
   author: {
     userId: string;
