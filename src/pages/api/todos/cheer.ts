@@ -32,6 +32,7 @@ export default async function handler(
     }
 
     default:
+      res.status(405).send("Method Error");
       break;
   }
 }
