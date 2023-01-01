@@ -65,8 +65,8 @@ model VerificationToken {
 
 model Profile {
   id       Int    @id @default(autoincrement())
-  nickname String
+  nickname String @default("치어럽")
   userId   String @unique
 
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

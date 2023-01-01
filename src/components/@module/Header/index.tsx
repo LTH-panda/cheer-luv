@@ -5,7 +5,10 @@ import { useSession } from "next-auth/react";
 import React from "react";
 
 function Header() {
-  const { status } = useSession();
+  const { status, data } = useSession();
+
+  console.log(data);
+
   return (
     <header className="flex p-4 items-center justify-between">
       <Logotypo />
