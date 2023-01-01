@@ -27,7 +27,7 @@ function TodoList() {
 
   return (
     <>
-      <div className="flex flex-col gap-2 sm:columns-2 sm:block space-y-3">
+      <div className="flex flex-col gap-2 sm:columns-2 sm:block sm:space-y-3">
         {todos.map((T) => (
           <TodoCard
             id={T.id}
