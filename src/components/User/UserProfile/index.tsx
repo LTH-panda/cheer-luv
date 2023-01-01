@@ -1,14 +1,20 @@
 import useProfileQuery from "hooks/queries/useProfileQuery";
+import useTriggerAuth from "hooks/useTriggerAuth";
 import { useSession } from "next-auth/react";
-import React from "react";
+import React, { useEffect } from "react";
 import UserProfileActions from "../UserProfileActions";
 
 function UserProfile() {
-  const { data: user } = useSession();
+  const { triggerAuth } = useTriggerAuth();
+  const { data: user, status } = useSession();
   const { data } = useProfileQuery({
     userId: user?.user.id!,
-    options: { enabled: !!user?.user.id },
+    options: { enabled: status === "authenticated" },
   });
+
+  useEffect(() => {
+    if (status === "unauthenticated") triggerAuth();
+  }, [status]);
 
   if (!data) return null;
 

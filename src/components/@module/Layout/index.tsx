@@ -1,3 +1,4 @@
+import { AuthPopover } from "components/Auth";
 import React from "react";
 
 type Props = {
@@ -5,7 +6,12 @@ type Props = {
 };
 
 function Layout({ children }: Props) {
-  return <div className="mx-auto max-w-2xl">{children}</div>;
+  return (
+    <>
+      <div className="mx-auto max-w-2xl">{children}</div>
+      <AuthPopover />
+    </>
+  );
 }
 
 export default Layout;
