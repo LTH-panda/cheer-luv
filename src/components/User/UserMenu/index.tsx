@@ -4,7 +4,7 @@ import React from "react";
 
 function UserMenu() {
   return (
-    <Link href="/">
+    <Link href="/user">
       <SvgIcon name="user" size={28} />
     </Link>
   );
