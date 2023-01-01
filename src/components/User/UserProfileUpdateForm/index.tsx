@@ -33,6 +33,7 @@ function UserProfileUpdateForm({ callback }: Props) {
         placeholder="닉네임을 입력하세요"
         value={nickname}
         onChange={onChange}
+        maxLength={10}
       />
       <Button type="submit" disabled={!nickname}>
         완료했어!
