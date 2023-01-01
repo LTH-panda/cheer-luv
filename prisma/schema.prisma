@@ -51,6 +51,8 @@ model User {
   sessions      Session[]
   profile       Profile?
 
+  todos Todo[]
+
   @@map("users")
 }
 
@@ -69,4 +71,28 @@ model Profile {
   userId   String @unique
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Todo {
+  id      Int    @id @default(autoincrement())
+  content String
+  userId  String
+  author  User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  todoLikes TodoLike[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([createdAt(sort: Desc)])
+}
+
+model TodoLike {
+  id     Int    @id @default(autoincrement())
+  userId String
+  todoId Int
+
+  todo Todo @relation(fields: [todoId], references: [id], onDelete: Cascade)
+
+  @@unique([todoId, userId])
 }

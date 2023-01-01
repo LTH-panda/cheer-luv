@@ -1,10 +1,10 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import NextAuth from "next-auth";
 import NaverProvider from "next-auth/providers/naver";
-import prisma from "utils/prisma";
+import db from "utils/prisma";
 
 export default NextAuth({
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(db),
   providers: [
     NaverProvider({
       clientId: process.env.NAVER_CLIENT_ID,
@@ -29,7 +29,7 @@ export default NextAuth({
 
   events: {
     async createUser({ user }) {
-      await prisma.profile.create({
+      await db.profile.create({
         data: {
           userId: user.id,
         },
