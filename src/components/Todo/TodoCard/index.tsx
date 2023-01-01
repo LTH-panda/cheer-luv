@@ -26,7 +26,7 @@ function TodoCard({ id, author, date, content, likeCount }: Props) {
           <SvgIcon name="heart" size={16} color={colors.gray[400]} />
           {likeCount}
         </div>
-        <TodoCheerButton />
+        <TodoCheerButton todoId={id} />
       </div>
     </div>
   );

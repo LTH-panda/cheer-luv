@@ -22,3 +22,15 @@ export async function getTodos(lastId?: number) {
 
   return res.data;
 }
+
+export async function cheerTodo({
+  userId,
+  todoId,
+}: {
+  userId: string;
+  todoId: number;
+}) {
+  const res = await client.post("/todos/cheer", { userId, todoId });
+
+  return res.data;
+}
