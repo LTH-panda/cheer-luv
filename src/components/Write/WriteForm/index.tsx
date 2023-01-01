@@ -1,3 +1,4 @@
+import { useQueryClient } from "@tanstack/react-query";
 import { writeTodo } from "apis/todos";
 import { Button } from "components/@base";
 import { useSession } from "next-auth/react";
@@ -5,6 +6,7 @@ import React, { useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 
 function WriteForm() {
+  const queryClient = useQueryClient();
   const [content, setContent] = useState("");
   const { data } = useSession();
 
@@ -18,6 +20,7 @@ function WriteForm() {
     if (!content || !data) return;
 
     await writeTodo({ userId: data.user.id, content });
+    queryClient.invalidateQueries(["todos"]);
     setContent("");
   };
 
