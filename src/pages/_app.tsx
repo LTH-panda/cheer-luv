@@ -10,6 +10,7 @@ import {
 import { useRouter } from "next/router";
 import * as gtag from "utils/gtag";
 import Script from "next/script";
+import Head from "next/head";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -63,6 +64,9 @@ export default function App({
       `,
         }}
       />
+      <Head>
+        <title>cheer luv - 목표를 공유해요</title>
+      </Head>
       <SessionProvider session={session}>
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>

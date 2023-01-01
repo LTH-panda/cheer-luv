@@ -26,7 +26,7 @@ function TodoCard({
   const { data } = useSession();
 
   return (
-    <div className="flex flex-col gap-4 rounded-xl p-4 border border-gray-300 bg-white justify-between">
+    <div className="flex flex-col gap-4 rounded-xl p-4 border border-gray-300 bg-white justify-between break-inside-avoid">
       <div className="flex items-center justify-between">
         <div className="flex items-center text-sm gap-1">
           <span>{authorNickname}</span>
@@ -35,7 +35,7 @@ function TodoCard({
         </div>
         {data?.user.id === authorId && <TodoOwnActions todoId={id} />}
       </div>
-      <div className="flex-1">{content}</div>
+      <div className="flex-1 break-all">{content}</div>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1 text-gray-400">
           <SvgIcon name="heart" size={16} color={colors.gray[400]} />
