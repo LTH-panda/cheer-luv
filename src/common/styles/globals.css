@@ -26,3 +26,9 @@ html {
   background-color: #fff7ed;
   color: #444;
 }
+
+/* Style your items */
+.masonry-cols > div {
+  /* change div to reference your elements you put in <Masonry> */
+  @apply mb-3;
+}

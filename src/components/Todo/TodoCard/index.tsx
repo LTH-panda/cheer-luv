@@ -26,9 +26,9 @@ function TodoCard({
   const { data } = useSession();
 
   return (
-    <div className="flex flex-col gap-4 rounded-xl p-4 border border-gray-300 bg-white justify-between break-inside-avoid">
+    <div className="flex flex-col justify-between gap-4 p-4 bg-white border border-gray-300 rounded-xl">
       <div className="flex items-center justify-between">
-        <div className="flex items-center text-sm gap-1">
+        <div className="flex items-center gap-1 text-sm">
           <span>{authorNickname}</span>
           <span className="text-gray-300">|</span>
           <span className="text-gray-300">{formatDate(date)}</span>
