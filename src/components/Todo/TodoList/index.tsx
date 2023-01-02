@@ -2,6 +2,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { getTodos } from "apis/todos";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import Masonry from "react-masonry-css";
 import TodoCard from "../TodoCard";
 
 function TodoList() {
@@ -27,7 +28,13 @@ function TodoList() {
 
   return (
     <>
-      <div className="flex flex-col gap-2 sm:columns-2 sm:block sm:space-y-3">
+      <Masonry
+        breakpointCols={{
+          672: 1,
+        }}
+        className="flex gap-3"
+        columnClassName="masonry-cols"
+      >
         {todos.map((T) => (
           <TodoCard
             id={T.id}
@@ -39,7 +46,7 @@ function TodoList() {
             key={T.id}
           />
         ))}
-      </div>
+      </Masonry>
       <div ref={ref} />
     </>
   );
