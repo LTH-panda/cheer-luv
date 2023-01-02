@@ -7,7 +7,7 @@ function HomePage() {
   return (
     <Layout>
       <Header />
-      <main className="p-4 flex flex-col gap-8">
+      <main className="flex flex-col gap-8 p-4">
         <WriteForm />
         <TodoList />
       </main>
