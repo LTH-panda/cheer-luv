@@ -3,8 +3,8 @@ import SocialProvider from "./SocialProvider";
 
 function AuthSocialActions() {
   return (
-    <div className="flex flex-col gap-3 w-full">
-      <SocialProvider provider="naver" />
+    <div className="flex flex-col w-full gap-3">
+      <SocialProvider provider="kakao" />
     </div>
   );
 }
