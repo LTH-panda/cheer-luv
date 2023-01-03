@@ -3,5 +3,7 @@ namespace NodeJS {
   interface ProcessEnv extends NodeJS.ProcessEnv {
     NAVER_CLIENT_ID: string;
     NAVER_CLIENT_SECRET: string;
+    KAKAO_CLIENT_ID: string;
+    KAKAO_CLIENT_SECRET: string;
   }
 }
