@@ -20,8 +20,6 @@ export async function getTodos(lastId?: number) {
     },
   });
 
-  console.log(res);
-
   return res.data;
 }
 
